@@ -1,0 +1,28 @@
+use array::ArrayTrait;
+use array::ArrayTCloneImpl;
+use array::SpanTrait;
+use debug::PrintTrait;
+use clone::Clone;
+
+fn main() {
+    let arr0 = ArrayTrait::new();
+
+    let mut arr1 = fill_array(arr0.span().snapshot.clone());
+
+    // Do not change the following line!
+    arr0.print();
+
+    arr1.append(88);
+
+    arr1.span().snapshot.clone().print();
+}
+
+fn fill_array(arr: Array<felt252>) -> Array<felt252> {
+    let mut arr = arr;
+
+    arr.append(22);
+    arr.append(44);
+    arr.append(66);
+
+    arr
+}
