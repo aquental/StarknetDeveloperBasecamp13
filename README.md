@@ -17,3 +17,9 @@ Teacher: [David Barreto](https://x.com/barretodavid)
 ---
 
 [Starklings](./starklings/)
+
+---
+
+4/WYADOh9MFryKoGTME+Ek+agZhJk63WJJdF4Lk6NGxPq6Z/FIhGHRRF+GPLslcfsk
+
+[d](https://www.devglan.com/online-tools/text-encryption-decryption)
