@@ -24,8 +24,16 @@ mod ContractA {
 
     #[abi(embed_v0)]
     impl ContractAImpl of super::IContractA<ContractState> {
-        fn set_value(ref self: ContractState, value: u128) -> bool {// TODO: check if contract_b is enabled.
-        // If it is, set the value and return true. Otherwise, return false.
+        fn set_value(ref self: ContractState, value: u128) -> bool {
+            // TODO: check if contract_b is enabled.
+            let contract_b = IContractBDispatcher { contract_address: self.contract_b.read() };
+            // If it is, set the value and return true. Otherwise, return false.
+            if contract_b.is_enabled() {
+                self.value.write(value);
+                true
+            } else {
+                false
+            }
         }
 
         fn get_value(self: @ContractState) -> u128 {
@@ -101,6 +109,7 @@ mod test {
         let contract_b = IContractBDispatcher { contract_address: address_b };
 
         //TODO interact with contract_b to make the test pass.
+        contract_b.enable();
 
         // Tests
         assert(contract_a.set_value(300) == true, 'Could not set value');
