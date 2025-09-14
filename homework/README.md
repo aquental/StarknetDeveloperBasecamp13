@@ -1,5 +1,9 @@
 # homework
 
+## Mainnet
+
+- wallet `0x06cbb71892bde5d50ab0f2b373335820376ed4cbae697f8cfe89cd52c1b40ecf`
+- [mainnet contract](https://voyager.online/contract/0x06998ece6d202b1b88444ff2fd9aa21b0d619dd121c44ad19a36e5aa73539676)
 - [smart contract](./counter/README.md)
 - [front]()
 

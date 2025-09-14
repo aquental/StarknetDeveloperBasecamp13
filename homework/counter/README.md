@@ -82,26 +82,33 @@ The Counter contract provides a simple incrementing/decrementing counter with th
 ### Functions
 
 #### Constructor
+
 ```cairo
 fn constructor(ref self: ContractState, initial_value: u32)
 ```
+
 Initializes the counter with a specified starting value.
 
 #### View Functions
+
 ```cairo
 fn get_counter(self: @ContractState) -> u32
 ```
+
 Returns the current value of the counter without modifying state.
 
 #### State-Modifying Functions
+
 ```cairo
 fn increment(ref self: ContractState)
 ```
+
 Increases the counter value by 1.
 
 ```cairo
 fn decrement(ref self: ContractState)
 ```
+
 Decreases the counter value by 1. Panics if the counter is already at 0 to prevent underflow.
 
 ### Interface
@@ -126,6 +133,7 @@ scarb build
 The project includes comprehensive test coverage:
 
 #### Unit Tests (src/tests.cairo)
+
 - Constructor initialization with zero and custom values
 - Single and multiple increment operations
 - Single and multiple decrement operations
@@ -134,10 +142,12 @@ The project includes comprehensive test coverage:
 - Large number handling
 
 #### Integration Tests (tests/test_contract.cairo)
+
 - Contract deployment and interaction
 - Safe dispatcher usage for error handling
 
 Run tests with:
+
 ```bash
 # Using Scarb (recommended)
 scarb test
@@ -164,6 +174,7 @@ inlining-strategy = "avoid"
 ```
 
 Then run:
+
 ```bash
 snforge test --coverage
 ```
@@ -173,29 +184,33 @@ snforge test --coverage
 ### Prerequisites for Deployment
 
 1. Install Starkli:
+
 ```bash
 curl https://get.starkli.sh | sh
 starkliup
 ```
 
 2. Set up your account and keystore:
+
 ```bash
 # Create a keystore for your account
 starkli signer keystore from-key ~/.starkli-wallets/deployer.json
 
 # Create an account descriptor
-starkli account fetch <YOUR_ACCOUNT_ADDRESS> --output ~/.starkli-wallets/account.json
+starkli account fetch 0x06cbB71892BDe5d50AB0F2b373335820376Ed4cBAe697f8cfe89cd52C1B40ecF --output ~/.starkli-wallets/account.json
 ```
 
 ### Deploy to Starknet Testnet
 
 1. Set environment variables:
+
 ```bash
 export STARKNET_ACCOUNT=~/.starkli-wallets/account.json
 export STARKNET_KEYSTORE=~/.starkli-wallets/deployer.json
 ```
 
 2. Declare the contract:
+
 ```bash
 starkli declare target/dev/counter_Counter.contract_class.json \
     --network sepolia \
@@ -203,6 +218,7 @@ starkli declare target/dev/counter_Counter.contract_class.json \
 ```
 
 3. Deploy the contract (with initial value of 0):
+
 ```bash
 starkli deploy <CLASS_HASH> \
     --constructor-calldata 0 \
@@ -212,11 +228,13 @@ starkli deploy <CLASS_HASH> \
 ### Deploy to Local Network (Katana)
 
 1. Start a local Starknet node:
+
 ```bash
 katana
 ```
 
 2. In another terminal, deploy:
+
 ```bash
 starkli declare target/dev/counter_Counter.contract_class.json \
     --rpc http://localhost:5050
@@ -233,6 +251,7 @@ starkli deploy <CLASS_HASH> \
 Once deployed, you can interact with the contract using Starkli:
 
 #### Read the counter value:
+
 ```bash
 starkli call <CONTRACT_ADDRESS> \
     get_counter \
@@ -240,6 +259,7 @@ starkli call <CONTRACT_ADDRESS> \
 ```
 
 #### Increment the counter:
+
 ```bash
 starkli invoke <CONTRACT_ADDRESS> \
     increment \
@@ -247,6 +267,7 @@ starkli invoke <CONTRACT_ADDRESS> \
 ```
 
 #### Decrement the counter:
+
 ```bash
 starkli invoke <CONTRACT_ADDRESS> \
     decrement \
@@ -270,16 +291,16 @@ mod MyContract {
 
     #[external(v0)]
     fn use_counter(self: @ContractState) {
-        let counter = ICounterDispatcher { 
-            contract_address: self.counter_address.read() 
+        let counter = ICounterDispatcher {
+            contract_address: self.counter_address.read()
         };
-        
+
         // Read current value
         let current = counter.get_counter();
-        
+
         // Increment
         counter.increment();
-        
+
         // Decrement (if > 0)
         if current > 0 {
             counter.decrement();
@@ -299,12 +320,13 @@ When writing tests for this contract:
 5. **Use safe dispatchers**: For testing panic conditions
 
 Example test pattern:
+
 ```cairo
 #[test]
 fn test_example() {
     let contract_address = deploy_counter(10);
     let dispatcher = ICounterDispatcher { contract_address };
-    
+
     // Test logic here
     assert(dispatcher.get_counter() == 10, 'Wrong initial value');
 }
@@ -331,6 +353,7 @@ This project is licensed under the MIT License.
 ## 🙋 Support
 
 If you have any questions or run into issues, please:
+
 1. Check the [Cairo Discord](https://discord.gg/starknet)
 2. Review the [Starknet community forum](https://community.starknet.io/)
 3. Open an issue in this repository
