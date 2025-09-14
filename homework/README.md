@@ -3,13 +3,11 @@
 ## Mainnet
 
 - wallet `0x06cbb71892bde5d50ab0f2b373335820376ed4cbae697f8cfe89cd52c1b40ecf`
-- [mainnet contract](https://voyager.online/contract/0x06998ece6d202b1b88444ff2fd9aa21b0d619dd121c44ad19a36e5aa73539676)
+- [view mainnet smart contract on Voyager](https://voyager.online/contract/0x06998ece6d202b1b88444ff2fd9aa21b0d619dd121c44ad19a36e5aa73539676)
 - [smart contract](./counter/README.md)
 - [front]()
 
----
-
-Response from Cairo Coder:
+### Response from Cairo Coder:
 
 ```cairo
 // Define the contract interface
@@ -51,4 +49,24 @@ pub mod Counter {
         }
     }
 }
+```
+
+### Interacting with the contract:
+
+Read counter:
+
+```shell
+starkli call 0x06998ece6d202b1b88444ff2fd9aa21b0d619dd121c44ad19a36e5aa73539676 get_counter --network mainnet
+```
+
+Increment:
+
+```shell
+starkli invoke 0x06998ece6d202b1b88444ff2fd9aa21b0d619dd121c44ad19a36e5aa73539676 increment --network mainnet --keystore /Users/aquental/.starkli-wallets/mainnet-keystore.json --account /Users/aquental/.starkli-wallets/account.json
+```
+
+Decrement:
+
+```shell
+starkli invoke 0x06998ece6d202b1b88444ff2fd9aa21b0d619dd121c44ad19a36e5aa73539676 decrement --network mainnet --keystore /Users/aquental/.starkli-wallets/mainnet-keystore.json --account /Users/aquental/.starkli-wallets/account.json
 ```
