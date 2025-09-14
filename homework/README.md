@@ -1,1 +1,4 @@
 # homework
+
+- [smart contract]()
+- [front]()
