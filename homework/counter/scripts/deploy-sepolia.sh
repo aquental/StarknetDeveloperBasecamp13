@@ -76,9 +76,10 @@ echo -e "${GREEN}Contract declared with class hash: $CLASS_HASH${NC}"
 # Step 5: Deploy the contract
 echo -e "${YELLOW}Step 5: Deploying the contract instance...${NC}"
 echo "Deploying with initial counter value: 0"
+echo "Deploying with owner address: $ACCOUNT_ADDRESS"
 
 DEPLOY_OUTPUT=$(starkli deploy $CLASS_HASH \
-    --constructor-calldata 0 \
+    --constructor-calldata 0 $ACCOUNT_ADDRESS \
     --network $NETWORK \
     --keystore $KEYSTORE_PATH \
     --account $ACCOUNT_PATH 2>&1)

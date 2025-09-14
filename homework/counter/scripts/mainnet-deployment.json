@@ -1,0 +1,23 @@
+{
+  "network": "mainnet",
+  "class_hash": "0x01c601a1e0a28eed30c5364370ab6df6f6a61fec50e5609d7e46b9248b314ec8",
+  "contract_address": "0x010720d83b8d4d788d79c1f35b15e085747c1bfd321d7c992bdeb17c7304d824",
+  "declaration_tx": "0x0403488a3fefd937919708b9e7f6bbb3924e8a2764d30fa888e648c045574c21",
+  "deployment_tx": "0x07fdf16ee22753bbf607015c8b970f0c91c8e6124f5b2a3bf15cfa361102b2bb",
+  "deployment_date": "2024-09-14 20:24:00 UTC",
+  "initial_value": 0,
+  "owner": "0x06cbB71892BDe5d50AB0F2b373335820376Ed4cBAe697f8cfe89cd52C1B40ecF",
+  "account": "0x06cbB71892BDe5d50AB0F2b373335820376Ed4cBAe697f8cfe89cd52C1B40ecF",
+  "features": {
+    "increment": "Anyone can call",
+    "decrement": "Anyone can call (with underflow protection)",
+    "set_counter": "Owner only",
+    "reset": "Anyone can call (requires 1 STRK payment)",
+    "get_counter": "Anyone can read"
+  },
+  "explorers": {
+    "voyager": "https://voyager.online/contract/0x010720d83b8d4d788d79c1f35b15e085747c1bfd321d7c992bdeb17c7304d824",
+    "starkscan": "https://starkscan.co/contract/0x010720d83b8d4d788d79c1f35b15e085747c1bfd321d7c992bdeb17c7304d824",
+    "starkcompass": "https://starkcompass.com/contract/0x010720d83b8d4d788d79c1f35b15e085747c1bfd321d7c992bdeb17c7304d824"
+  }
+}

@@ -78,13 +78,14 @@ The Counter contract provides a simple incrementing/decrementing counter with th
 ### Storage
 
 - `counter: u32` - Stores the current counter value
+- `ownable: OwnableComponent::Storage` - Store the contract owner
 
 ### Functions
 
 #### Constructor
 
 ```cairo
-fn constructor(ref self: ContractState, initial_value: u32)
+fn constructor(ref self: ContractState, initial_value: u32, owner: ContractAddress)
 ```
 
 Initializes the counter with a specified starting value.
@@ -107,6 +108,14 @@ Increases the counter value by 1.
 
 ```cairo
 fn decrement(ref self: ContractState)
+```
+
+```cairo
+fn set_counter(ref self: ContractState, newValue: u32)
+```
+
+```cairo
+fn reset(ref self: ContractState)
 ```
 
 Decreases the counter value by 1. Panics if the counter is already at 0 to prevent underflow.

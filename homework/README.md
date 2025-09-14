@@ -2,9 +2,14 @@
 
 ## Mainnet
 
-- wallet `0x06cbb71892bde5d50ab0f2b373335820376ed4cbae697f8cfe89cd52c1b40ecf`
-- [view mainnet smart contract on Voyager](https://voyager.online/contract/0x06998ece6d202b1b88444ff2fd9aa21b0d619dd121c44ad19a36e5aa73539676)
+### wallet `0x06cbb71892bde5d50ab0f2b373335820376ed4cbae697f8cfe89cd52c1b40ecf`
+
+- Smart Contract on Mainnet: [0x010720d83b8d4d788d79c1f35b15e085747c1bfd321d7c992bdeb17c7304d824](https://voyager.online/contract/0x010720d83b8d4d788d79c1f35b15e085747c1bfd321d7c992bdeb17c7304d824)
+  - Declaration TX: [0x0403488a3fefd937919708b9e7f6bbb3924e8a2764d30fa888e648c045574c21](https://voyager.online/tx/0x403488a3fefd937919708b9e7f6bbb3924e8a2764d30fa888e648c045574c21)
+  - Deployment TX: [0x07fdf16ee22753bbf607015c8b970f0c91c8e6124f5b2a3bf15cfa361102b2bb](https://voyager.online/tx/0x7fdf16ee22753bbf607015c8b970f0c91c8e6124f5b2a3bf15cfa361102b2bb)
 - [smart contract](./counter/README.md)
+- [mainnet deployment](./counter/scripts/mainnet-deployment.json)
+
 - [front]()
 
 ### Response from Cairo Coder:
