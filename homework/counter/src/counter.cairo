@@ -4,12 +4,18 @@
 pub trait ICounter<TContractState> {
     /// Returns the current value of the counter.
     fn get_counter(self: @TContractState) -> u32;
-    
+
     /// Increments the counter by 1.
     fn increment(ref self: TContractState);
-    
+
     /// Decrements the counter by 1.
     fn decrement(ref self: TContractState);
+
+    /// Set counter to specific value
+    fn set_counter(ref self: TContractState, newValue: u32);
+
+    ///reset counter
+    fn reset(ref self: TContractState);
 }
 
 /// Counter contract for managing a simple counter value.
@@ -46,6 +52,16 @@ mod Counter {
             let current = self.counter.read();
             assert(current > 0, 'Counter would underflow');
             self.counter.write(current - 1);
+        }
+
+        /// Set counter to specific value
+        fn set_counter(ref self: ContractState, newValue: u32) {
+            self.counter.write(newValue);
+        }
+
+        /// Reset counter to zero
+        fn reset(ref self: ContractState) {
+            self.counter.write(0);
         }
     }
 }
