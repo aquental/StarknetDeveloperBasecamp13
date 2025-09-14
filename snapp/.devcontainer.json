@@ -1,0 +1,9 @@
+{
+  "name": "snapp",
+  "image": "starknetfoundation/starknet-dev:2.11.4",
+  "customizations": {
+    "vscode": {
+      "extensions": ["Starkware.cairo1", "tamasfe.even-better-toml"]
+    }
+  }
+}
