@@ -17,3 +17,7 @@ Teacher: [David Barreto](https://x.com/barretodavid)
 ---
 
 [Starklings](./starklings/)
+
+# homework
+
+[here](./homework/README.md)
