@@ -1,2 +1,3 @@
 * linguist-detectable=false
 *.rs linguist-detectable=true
+*.cairo linguist-detectable=true
